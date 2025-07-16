@@ -160,12 +160,12 @@ if 'df_all' in st.session_state:
 
     # Definir intervalo dos últimos 6 meses
     last_date = df_fat['Data'].max()
-    meses = pd.date_range(end=last_date, periods=6, freq='M')
+    meses = pd.date_range(end=last_date, periods=7, freq='MS')
 
     # Agrupar vendas por Produto e Mês
     vendas_mes = (
         df_fat[df_fat['Data'] >= meses.min()]
-        .groupby([pd.Grouper(key='Data', freq='M'), 'Produto', 'Descrição do Produto'])['Quantidade']
+        .groupby([pd.Grouper(key='Data', freq='MS'), 'Produto', 'Descrição do Produto'])['Quantidade']
         .sum()
         .reset_index()
 )
