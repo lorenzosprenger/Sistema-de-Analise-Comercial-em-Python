@@ -37,8 +37,10 @@ def standardize_column_names(df):
         'produto': 'Produto',
         'descricao do produto': 'Descrição do Produto',
         'desc.prod': 'Descrição do Produto',
+        'referencia': 'Referência',
         # Representante (campo de descrição)
         'desc.repr/prep': 'Representante'
+        
     }
     # Aplica renomeação apenas para colunas presentes
     df = df.rename(columns={col: new for col, new in rename_map.items() if col in df.columns})
